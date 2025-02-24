@@ -31,7 +31,7 @@ def index():
         city = request.form['city']
         api_key = var.key
         weather_data = get_weather(api_key, city)
-        return render_template('index.html', weather_data=weather_data)
+        return render_template('index.html', weather_data={ })
     
     return render_template('index.html', weather_data=None)
 
