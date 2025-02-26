@@ -28,14 +28,19 @@ def get_weather(api_key, city):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     city = "London" # Default city
-    api_key = os.getenv("WEATHER_API_KEY", "62c5ae"
+    api_key = os.getenv("WEATHER_API_KEY", "62c5ae06c3c40af76390a238bb76c7dd")
+    
     if request.method == 'POST':
         city = request.form['city']
-        api_key = var.key
-        weather_data = get_weather(api_key, city)
-        transcode_data = { }
+        # api_key = var.key
+    weather_data = get_weather(api_key, city)
+    transcode_data = {
+        "SOURCE_FILE_NAME": os.getenv("SOURCE_FILE_NAME", "Not Set"),
+        "SourceBucketName": os.getenv("SourceBucketName", "Not Set"),
+        "DestBucketName": os.getenv("DestBucketName", "Not Set")
+    }
     
-    return render_template('index.html', transcode_data=None)
+    return render_template('index.html', weather_data=weather_data, transcode_data=transcode_data)
 
 if __name__ == "__main__":
     #app.run(debug=True,port=8080)
