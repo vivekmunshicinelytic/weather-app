@@ -34,7 +34,7 @@
              TechTrapture Weather App
         </a>
     </nav>
-
+    
     <div class="container mt-5">
         <h1 class="mb-4 text-primary">Weather App</h1>
         <form method="post">
@@ -55,6 +55,15 @@
             </div>
         {% else %}
             <p class="mt-4">Weather data unavailable.</p>
+        {% endif %}
+        {% if transcode_data %}
+            <div class="mt-4">
+                <h2>Source File Name: {{ transcode_data['SOURCE_FILE_NAME'] }}, </h2>
+                <p>Source Bucket Name: {{ transcode_data['SourceBucketName'] }}</p>
+                <p>Destination Bucket Name: {{ transcode_data['DestBucketName'] }}</p>
+            </div>
+        {% else %}
+            <p class="mt-4">Transcode data is unavailable.</p>
         {% endif %}
     </div>
 
