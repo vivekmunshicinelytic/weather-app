@@ -58,7 +58,8 @@
         {% endif %}
         {% if transcode_data %}
             <div class="mt-4">
-                <h2>Source File Name: {{ transcode_data['SOURCE_FILE_NAME'] }}, </h2>
+                <h2>Transcoding Information:</h2>
+                <p>Source File Name: {{ transcode_data['SOURCE_FILE_NAME'] }}, </p>
                 <p>Source Bucket Name: {{ transcode_data['SourceBucketName'] }}</p>
                 <p>Destination Bucket Name: {{ transcode_data['DestBucketName'] }}</p>
             </div>
